@@ -1,1 +1,4 @@
 key/
+files/
+config.json
+__pycache__/

@@ -53,4 +53,15 @@ def encrypt_secure_config(**kwargs):
     else:
         raise ValueError("Nombre d'arguments invalide.")
 
+# Function to load config
+def load_config(filename, key):
+    with open(filename, 'r') as f:
+        data = json.load(f)
+        encrypted_value = data["encrypted_data"][key]
+        return encrypted_value
 
+# Function to decrypt
+def decrypt_data(encrypted_data, key):
+    cipher_suite = Fernet(key)
+    decrypted_data = cipher_suite.decrypt(encrypted_data.encode()).decode()
+    return decrypted_data
