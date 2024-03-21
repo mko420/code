@@ -1,13 +1,17 @@
-import requests
-from requests.auth import HTTPBasicAuth
-import json
-import os
-import getpass
+import requests                             #get the API
+from requests.auth import HTTPBasicAuth     #manage basicAuth
+import json                                 #manage JSON
+import os                                   #manage Path and file
+import getpass                              #hide password
 
-# URL API, must be interne.ovh.net and not the new DNS name
-url = "https://interne.ovh.net/uservice/gateway/pcc/v1/objects/datacenter?pccZone%3Aeq=rbx2a"
+from constants import USER
 
-user = 'michael.castaing'
+# URL API, must be interne.ovh.net and not pcc.eu.ovhcloud.tools
+#ex: https://interne.ovh.net/uservice/gateway/pcc/v1/objects/datacenter?pccZone%3Aeq=rbx2a
+print("(must be https://interne.ovh.net/uservice/gateway/pcc/v1 and not pcc.eu.ovhcloud.tools)")
+url  = input("type the API Url:\n ")
+
+user = USER
 
 key_name = (f"{user}.key")
 key_dir = "key"
